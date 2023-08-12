@@ -1,10 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Core.Repositories;
+﻿using Core.Repositories;
 using Business.ImplRepositories;
+using Business.Data;
+using Npgsql.EntityFrameworkCore;
 
 namespace Api
 {
@@ -18,6 +15,7 @@ namespace Api
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MarketplaceDbContext>();
             services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddControllers();
