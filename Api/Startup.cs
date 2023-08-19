@@ -1,5 +1,5 @@
 ﻿using Core.Repositories;
-using Business.ImplRepositories;
+using Business.Logic;
 using Business.Data;
 using Npgsql.EntityFrameworkCore;
 
@@ -15,6 +15,7 @@ namespace Api
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));  
             services.AddDbContext<MarketplaceDbContext>();
             services.AddTransient<IProductRepository, ProductRepository>();
 

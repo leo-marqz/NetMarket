@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Business.ImplRepositories
+namespace Business.Logic
 {
     public class ProductRepository : IProductRepository
     {
